@@ -4,7 +4,7 @@ kind: Kustomization
 commonAnnotations:
   argocd.argoproj.io/compare-options: IgnoreExtraneous  
 
-resources:
+resources: 
   - ./olm-patch.yaml
   - ./admin-role-binding.yaml
   - ./admin-group.yaml
