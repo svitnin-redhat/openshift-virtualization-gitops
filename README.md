@@ -7,11 +7,11 @@ A well-architected virtualization migration factory deployment aimed at making i
   - [Getting Started](#getting-started)
   - [High-Level Architecture](#repo-structure)
   - [GitOps Approach](#gitops-approach)
-  - [Ansible Automation Platform](#ansible-automation-platform)    
+  - [Ansible Automation Platform](#ansible-automation-platform)
 
 <!-- TOC -->
 
-## Getting Started 
+## Getting Started
 
 You will have to customize the following before you can get started:
 
@@ -23,7 +23,7 @@ You will have to customize the following before you can get started:
 Once you have performed the above customization you can run the following:
 
 ```sh
-export gitops_repo=https://github.com/AsherShoshan/openshift-virtualization-gitops.git #<your newly created repo>>
+export gitops_repo=https://github.com/svitnin-redhat/openshift-virtualization-gitops.git #<your newly created repo>>
 export cluster_name=hub #<your hub cluster name, typically "hub">
 export cluster_base_domain=$(oc get ingress.config.openshift.io cluster --template={{.spec.domain}} | sed -e "s/^apps.//")
 export platform_base_domain=${cluster_base_domain#*.}
