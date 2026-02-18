@@ -7,7 +7,7 @@ projects:
     description: Project for overall cluster configuration
     namespace: openshift-gitops
     sourceRepos:
-    - https://github.com/svitnin-redhat/openshift-virtualization-gitops
+    - ${INFRA_GITOPS_REPO}
     destinations: |
       - namespace: '*'
         server: https://kubernetes.default.svc
@@ -16,7 +16,7 @@ projects:
       - group: '*'
         kind: '*'
 
-applications: 
+applications:
 
 # Basic
 
@@ -24,7 +24,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '5'
     source:
-      path: components/web-terminal-operator 
+      path: components/web-terminal-operator
 
 # Storage
 
@@ -37,7 +37,7 @@ applications:
     destination:
       namespace: kube-ops-view
     source:
-      path: components/kube-ops-view       
+      path: components/kube-ops-view
 
 # Networking
 
@@ -67,7 +67,7 @@ applications:
     destination:
       namespace: external-dns
     source:
-      path: components/external-dns-configuration      
+      path: components/external-dns-configuration
 
   metallb-operator:
     annotations:
@@ -79,7 +79,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '5'
     source:
-      path: components/nmstate-operator 
+      path: components/nmstate-operator
 
   nmstate-instance:
     annotations:
@@ -89,4 +89,3 @@ applications:
     source:
       path: components/nmstate-instance
 
-              
