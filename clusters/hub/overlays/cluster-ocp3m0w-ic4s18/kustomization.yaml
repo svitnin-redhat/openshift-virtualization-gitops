@@ -9,9 +9,9 @@ resources:
   - ./master-0-nmstate-config.yaml
   - ./master-1-nmstate-config.yaml
   - ./master-2-nmstate-config.yaml
-  - ./master-0-fqdn.yaml
-  - ./master-1-fqdn.yaml
-  - ./master-2-fqdn.yaml
+  # - ./master-0-fqdn.yaml
+  # - ./master-1-fqdn.yaml
+  # - ./master-2-fqdn.yaml
 
 helmGlobals:
   chartHome: ../../../../.helm-charts
