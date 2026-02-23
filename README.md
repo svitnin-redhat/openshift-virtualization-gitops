@@ -23,6 +23,7 @@ You will have to customize the following before you can get started:
 Once you have performed the above customization you can run the following:
 
 ```sh
+export KUBECONFIG=/home/kni/clusterconfigs/auth/kubeconfig
 export gitops_repo=https://github.com/svitnin-redhat/openshift-virtualization-gitops.git
 export cluster_name=hub
 export cluster_base_domain=$(oc get ingress.config.openshift.io cluster --template={{.spec.domain}} | sed -e "s/^apps.//")
@@ -33,6 +34,7 @@ sleep 60
 envsubst < .bootstrap/argocd.yaml | oc apply -f -
 sleep 30
 envsubst < .bootstrap/root-application.yaml | oc apply -f -
+oc whoami --show-console 2>/dev/null || echo "Not logged in to OpenShift cluster"
 ```
 
 ## High-Level Architecture
