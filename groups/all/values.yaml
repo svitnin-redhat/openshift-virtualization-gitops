@@ -83,7 +83,7 @@ applications:
     source:
       path: components/nmstate-operator
 
- nmstate-instance:
+  nmstate-instance:
     annotations:
       argocd.argoproj.io/sync-wave: '6'
     destination:
