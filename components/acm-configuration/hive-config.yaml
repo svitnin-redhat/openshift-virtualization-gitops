@@ -2,6 +2,6 @@ apiVersion: hive.openshift.io/v1
 kind: HiveConfig
 metadata:
   name: hive
-spec:
-  additionalCertificateAuthoritiesSecretRef:
-    - name: letsencrypt-ca
+# spec: 
+#   additionalCertificateAuthoritiesSecretRef:
+#     - name: letsencrypt-ca
