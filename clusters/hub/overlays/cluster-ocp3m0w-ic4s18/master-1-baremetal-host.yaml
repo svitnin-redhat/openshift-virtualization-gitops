@@ -2,7 +2,6 @@ apiVersion: metal3.io/v1alpha1
 kind: BareMetalHost
 metadata:
   annotations:
-    baremetalhost.metal3.io/detached: "true"
     inspect.metal3.io: disabled
     bmac.agent-install.openshift.io/hostname: master-1.ocp3m0w-ic4s18.qe.lab.redhat.com
     bmac.agent-install.openshift.io/role: master
