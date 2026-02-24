@@ -23,5 +23,5 @@ spec:
   bootMACAddress: 52:54:00:28:ea:be
   rootDeviceHints:
     deviceName: /dev/sda
-  online: false
+  online: true
   bootMode: UEFI
