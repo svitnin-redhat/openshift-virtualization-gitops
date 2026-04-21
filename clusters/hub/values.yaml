@@ -65,11 +65,12 @@ applications:
     source:
       path: components/acm-configuration
 
-  #acm-observability:
-  #  annotations:
-  #    argocd.argoproj.io/sync-wave: '25'
-  #  source:
-  #    path: components/acm-observability
+  acm-observability:
+    enabled: false
+    annotations:
+      argocd.argoproj.io/sync-wave: '25'
+    source:
+      path: components/acm-observability
 
   gitops-boostrap-policy:
     annotations:
