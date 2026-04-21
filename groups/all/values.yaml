@@ -42,12 +42,14 @@ applications:
 # Networking
 
   cert-manager-operator:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '20'
     source:
       path: components/cert-manager-operator
 
   cert-manager-configuration:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '25'
     destination:
