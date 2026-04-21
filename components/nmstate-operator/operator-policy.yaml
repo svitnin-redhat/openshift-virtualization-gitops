@@ -29,5 +29,5 @@ spec:
     source: redhat-operators
     sourceNamespace: openshift-marketplace
   versions:
-    - kubernetes-nmstate-operator.4.21.0-202602180447
+    - kubernetes-nmstate-operator.4.21.0-202604080925
 
