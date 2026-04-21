@@ -23,6 +23,11 @@ applications:
       path: components/reflector-operator      
 
 # Networking
+  # Disable cert-manager                                                                                                                    
+  cert-manager-operator:
+    enabled: false                                                                                                                          
+  cert-manager-configuration:
+    enabled: false
 
   #metallb-configuration:
   #  annotations:
