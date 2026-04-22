@@ -28,7 +28,12 @@ applications:
     enabled: false                                                                                                                          
   cert-manager-configuration:
     enabled: false
-
+    
+  external-dns-operator:
+      enabled: false                                                                                                                          
+    external-dns-configuration:
+      enabled: false
+      
   #metallb-configuration:
   #  annotations:
   #    argocd.argoproj.io/sync-wave: '25'
