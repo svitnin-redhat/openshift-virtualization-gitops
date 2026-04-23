@@ -58,12 +58,14 @@ applications:
       path: components/cert-manager-configuration
 
   external-dns-operator:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '20'
     source:
       path: components/external-dns-operator
 
   external-dns-configuration:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '25'
     destination:
