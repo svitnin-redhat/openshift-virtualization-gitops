@@ -30,9 +30,9 @@ applications:
     enabled: false
     
   external-dns-operator:
-      enabled: false                                                                                                                          
-    external-dns-configuration:
-      enabled: false
+    enabled: false                                                                                                                          
+  external-dns-configuration:
+    enabled: false
       
   #metallb-configuration:
   #  annotations:
