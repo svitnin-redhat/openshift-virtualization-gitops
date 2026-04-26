@@ -91,7 +91,8 @@ spec:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
             runAsUser: 1000
-          image: "docker.io/emberstack/kubernetes-reflector:10.0.39"
+          image: "registry.ocp3m0w-id4s21.qe.lab.redhat.com:5000/emberstack/kubernetes-reflecto
+  r:10.0.39"
           imagePullPolicy: IfNotPresent
           env:
             - name: ES_Serilog__MinimumLevel__Default
