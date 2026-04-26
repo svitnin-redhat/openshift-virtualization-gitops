@@ -7,5 +7,5 @@ metadata:
 spec:
   channel: stable-4.20
   desiredUpdate:
-    version: 4.20.0-0.ci-2026-04-26-081042
-    image: "quay.io/openshift-release-dev/dev-release@sha256:1cc97e020b05a2ac0e2824345577137cd28f0eb229b7c096effe55902b9b4c1a"
+    version: 4.20.19
+    image: "quay.io/openshift-release-dev/dev-release@sha256:e37bcdba07c7312607363ddf5a8e317e4b6952b1465704b38c9a081d095697be"
