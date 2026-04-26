@@ -5,9 +5,4 @@ namespace: reflector-operator
 resources:
   - ./namespace.yaml
   - ./rbac.yaml
-
-helmCharts:
-  - name: reflector
-    namespace: reflector-operator
-    releaseName: reflector-operator
-    repo: https://emberstack.github.io/helm-charts
+  - ./reflector-manifests.yaml
