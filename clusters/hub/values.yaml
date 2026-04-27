@@ -34,6 +34,7 @@ applications:
   #    path: clusters/hub/overlays/metallb-configuration
 
   nmstate-configuration:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '25'
     destination:
