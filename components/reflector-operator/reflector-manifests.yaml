@@ -91,7 +91,7 @@ spec:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
             runAsUser: 1000
-          image: "registry.ocp3m0w-id4s21.qe.lab.redhat.com:5000/emberstack/kubernetes-reflector:10.0.39"
+          image: "docker://quay.io/ocp-edge-qe/kubernetes-reflector@sha256:18c639abc5fb6d9a317433ab4ce576a2fe8d8671eae638212ba4f0fc1180a9a0"
           imagePullPolicy: IfNotPresent
           env:
             - name: ES_Serilog__MinimumLevel__Default
