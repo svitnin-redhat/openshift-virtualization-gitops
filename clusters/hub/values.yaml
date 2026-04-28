@@ -20,7 +20,15 @@ applications:
     destination:
       namespace: reflector-operator      
     source:
-      path: components/reflector-operator      
+      path: components/reflector-operator
+
+  minio-operator:                                                                                                                        
+    annotations:
+      argocd.argoproj.io/sync-wave: '10'                                                                                                 
+    destination:
+      namespace: minio-operator                                                                                                          
+    source:     
+      path: components/minio-operator    
 
 # Networking
   # Disable cert-manager                                                                                                                    
