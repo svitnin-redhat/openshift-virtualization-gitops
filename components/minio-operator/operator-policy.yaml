@@ -5,8 +5,8 @@ metadata:
   namespace: open-cluster-management-policies
 spec:
   upgradeApproval: Automatic
-  operatorGroup:          # ADD THIS                                                                                                     
-    name: minio-operator                                                                                                                 
+  operatorGroup:
+  name: minio-operator
     namespace: minio-operator
   complianceConfig:
     catalogSourceUnhealthy: Compliant
