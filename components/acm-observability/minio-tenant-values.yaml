@@ -13,6 +13,4 @@ tenant:
     - name: acmo
       objectLock: false
   certificate:    
-    requestAutoCert: false         
-
-                        
+    requestAutoCert: false
