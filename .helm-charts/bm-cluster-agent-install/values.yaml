@@ -4,6 +4,7 @@ imageSet: none
 clusterSet: default
 sshKey: none
 baseDomain: qe.lab.redhat.com
+skipDnsEndpoints: true
 mastersSchedulable: false
 networking:
   podCIDR: 0.0.0.0/0
