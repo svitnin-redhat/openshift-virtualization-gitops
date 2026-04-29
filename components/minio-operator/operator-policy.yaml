@@ -6,7 +6,7 @@ metadata:
 spec:
   upgradeApproval: Automatic
   operatorGroup:
-  name: minio-operator
+    name: minio-operator
     namespace: minio-operator
   complianceConfig:
     catalogSourceUnhealthy: Compliant
