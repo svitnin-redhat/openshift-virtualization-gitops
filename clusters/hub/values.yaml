@@ -97,6 +97,18 @@ applications:
     source:
       path: components/gitops-boostrap-policy
 
+  node-health-check-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '20'
+    source:
+      path: components/node-health-check-operator
+
+  node-health-check-configuration:
+    annotations:
+      argocd.argoproj.io/sync-wave: '30'
+    source:
+      path: components/node-health-check-configuration    
+
 # DR
 
 # AAP
