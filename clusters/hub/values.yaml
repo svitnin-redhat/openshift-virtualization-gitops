@@ -23,6 +23,7 @@ applications:
       path: components/reflector-operator
 
   minio-operator:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '10'
     destination:
