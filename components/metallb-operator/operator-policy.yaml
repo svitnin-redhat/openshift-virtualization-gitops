@@ -26,13 +26,13 @@ spec:
     namespace: metallb-system
     source: redhat-operators
     sourceNamespace: openshift-marketplace
-  versions:
-    - metallb-operator.v4.20.0-202602021426
-    - metallb-operator.v4.20.0-202602261925
-    - metallb-operator.v4.20.0-202603152019
-    - metallb-operator.v4.21.0-202603240526
-    - metallb-operator.v4.21.0-202604140043  
-    - metallb-operator.v4.21.0-202604200440
-    - metallb-operator.v4.21.0-202604221819
+  #versions:
+    #- metallb-operator.v4.20.0-202602021426
+    #- metallb-operator.v4.20.0-202602261925
+    #- metallb-operator.v4.20.0-202603152019
+    #- metallb-operator.v4.21.0-202603240526
+    #- metallb-operator.v4.21.0-202604140043  
+    #- metallb-operator.v4.21.0-202604200440
+    #- metallb-operator.v4.21.0-202604221819
   
 
