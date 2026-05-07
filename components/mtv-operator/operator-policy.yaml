@@ -28,5 +28,5 @@ spec:
     namespace: openshift-mtv
     source: redhat-operators
     sourceNamespace: openshift-marketplace
-  versions:
-    - mtv-operator.v2.11.0
+  #versions:
+    #- mtv-operator.v2.11.0
