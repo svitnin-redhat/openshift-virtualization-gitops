@@ -1,0 +1,50 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: far-propagate-policy
+  namespace: acm-policies
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1beta1
+        kind: OperatorPolicy
+        metadata:
+          name: fence-agents-remediation
+        spec:
+          upgradeApproval: Automatic
+          complianceConfig:
+            catalogSourceUnhealthy: Compliant
+            deploymentsUnavailable: NonCompliant
+            upgradesAvailable: Compliant
+          complianceType: musthave
+          remediationAction: enforce
+          removalBehavior:
+            clusterServiceVersions: Delete
+            customResourceDefinitions: Keep
+            operatorGroups: DeleteIfUnused
+            subscriptions: Delete
+          severity: medium
+          subscription:
+            channel: stable
+            name: fence-agents-remediation
+            namespace: openshift-workload-availability
+            source: redhat-operators
+            sourceNamespace: openshift-marketplace
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: far-propagate-binding
+  namespace: acm-policies
+subjects:
+  - kind: Policy
+    apiGroup: policy.open-cluster-management.io
+    name: far-propagate-policy
+placementRef:
+  kind: Placement
+  apiGroup: cluster.open-cluster-management.io
+  name: placement-policy-gitops
