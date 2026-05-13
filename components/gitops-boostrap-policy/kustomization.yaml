@@ -8,6 +8,7 @@ resources:
 - placement.yaml
 - managedclustersetbinding.yaml
 - policy-service-account.yaml
+- far-propagate-policy.yaml
 - propagate-secret-policy.yaml
 
 generators:
