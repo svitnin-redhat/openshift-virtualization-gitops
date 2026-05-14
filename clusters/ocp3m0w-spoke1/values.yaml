@@ -1,0 +1,57 @@
+kind: Kustomization
+
+resources:
+  - ../cluster-versions.yaml
+  - ../../groups/all
+  - ../../groups/prod
+
+helmGlobals:
+  chartHome: ../../.helm-charts
+
+helmCharts:
+- name: argocd-app-of-app
+  valuesFile: values.yaml
+  namespace: openshift-gitops
+
+replacements:
+- source:
+    version: v1
+    kind: ConfigMap
+    name: cluster-versions
+    fieldPath: data.ocp3m0w-spoke1
+  targets:
+  - select:
+      group: argoproj.io
+      version: v1alpha1
+      kind: Application
+    fieldPaths:
+    - spec.source.targetRevision
+[kni@ocp-edge53 openshift-virtualization-gitops]$ cat clusters/ocp3m0w-spoke1/values.yaml
+
+projects: {}
+
+applications:
+
+  openshift-config:
+    annotations:
+      argocd.argoproj.io/sync-wave: '16'
+    source:
+      path: clusters/ocp3m0w-spoke1/overlays/openshift-config
+
+# Networking
+
+  nmstate-configuration:
+    annotations:
+      argocd.argoproj.io/sync-wave: '15'
+    source:
+      path: clusters/ocp3m0w-spoke1/overlays/nmstate-configuration
+
+  metallb-configuration:
+    annotations:
+      argocd.argoproj.io/sync-wave: '6'
+    destination:
+      namespace: metallb-system
+    source:
+      path: clusters/ocp3m0w-spoke1/overlays/metallb-configuration
+
+# Storage
