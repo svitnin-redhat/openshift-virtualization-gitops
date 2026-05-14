@@ -7,6 +7,14 @@ metadata:
 spec:
   resourceTrackingMethod: annotation
   kustomizeBuildOptions: --enable-alpha-plugins --load-restrictor LoadRestrictionsNone --helm-command /usr/local/bin/helm
+  imageUpdater:
+    enabled: false
+  monitoring:
+    enabled: false
+  networkPolicy:
+    enabled: true
+  notifications:
+    enabled: false
   extraConfig:
     resource.customizations.useOpenLibs.minio.min.io_Tenant: 'true'
     resource.compareoptions: |
@@ -24,6 +32,8 @@ spec:
       requests:
         cpu: 125m
         memory: 128Mi
+    ingress:
+      enabled: false
     insecure: true
     route:
       enabled: true
@@ -54,7 +64,7 @@ spec:
       return hs
   - group: serving.knative.dev
     kind: Service
-    check: |      
+    check: |
       local health_status = {}
       health_status.status = "Progressing"
       health_status.message = "Waiting for status update."
@@ -94,7 +104,7 @@ spec:
           return health_status
         end
       end
-      return health_status      
+      return health_status
   - group: cert-manager.io
     kind: Certificate
     check: |
@@ -131,7 +141,7 @@ spec:
       return hs
   - group: cert-manager.io
     kind: ClusterIssuer
-    check: |     
+    check: |
       local hs = {}
       if obj.status ~= nil then
         if obj.status.conditions ~= nil then
@@ -155,7 +165,7 @@ spec:
       return h
   - group: cert-manager.io
     kind: Issuer
-    check: |     
+    check: |
       local hs = {}
       if obj.status ~= nil then
         if obj.status.conditions ~= nil then
@@ -266,7 +276,7 @@ spec:
       end
       health_status.status = "Progressing"
       health_status.message = "No status info available"
-      return health_status                          
+      return health_status
   - group: route.openshift.io
     kind: Route
     check: |
@@ -433,7 +443,7 @@ spec:
           return health_status
         end
       end
-      return health_status                          
+      return health_status
   grafana:
     enabled: false
     ingress:
@@ -457,6 +467,11 @@ spec:
   applicationSet:
     #extraCommandArgs:
     #  - --enable-progressive-syncs
+    webhookServer:
+      ingress:
+        enabled: false
+      route:
+        enabled: false
     resources:
       limits:
         cpu: "2"
@@ -490,7 +505,7 @@ spec:
         name: policy-generator
     volumeMounts:
     - mountPath: /etc/kustomize/plugin/policy.open-cluster-management.io/v1/policygenerator
-      name: policy-generator                
+      name: policy-generator
     sidecarContainers:
       - name: setenv-plugin
         command: [/var/run/argocd/argocd-cmp-server]
@@ -515,13 +530,13 @@ spec:
           - mountPath: /etc/kustomize/plugin/policy.open-cluster-management.io/v1/policygenerator
             name: policy-generator
           - name: tls-certs
-            mountPath: /app/config/tls                                
+            mountPath: /app/config/tls
     volumes:
       - configMap:
           name: setenv-cmp-plugin
         name: setenv-cmp-plugin
       - emptyDir: {}
-        name: policy-generator        
+        name: policy-generator
     resources:
       limits:
         cpu: "1"
@@ -583,3 +598,4 @@ spec:
         cpu: 250m
         memory: 1Gi
     sharding: {}
+    
