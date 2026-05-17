@@ -8,4 +8,3 @@ data:
   etl4: openshift-4.21
   etl6: openshift-4.21
   spoke1: openshift-4.21
-  
